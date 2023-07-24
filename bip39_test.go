@@ -23,7 +23,6 @@ var languages = [10]string{"chinesesimplified", "chinesetraditional", "czech", "
 
 func TestGetWordList(t *testing.T) {
 	for _, lang := range languages {
-		fmt.Println(lang)
 		switch lang {
 		case "chinesesimplified":
 			assert.EqualStringsSlices(t, wordlist.ChineseSimplified, wordList[lang])
