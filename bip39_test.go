@@ -11,14 +11,14 @@ import (
 	"github.com/decen-one/go-bip39/wordlist"
 )
 
-var languages = [10]string{"chinesesimplified", "chinesetraditional", "czech", "english", "french", "italian", "japanese", "korean", "portuguese", "spanish"}
+var languages = [10]string{"chinese-simplified", "chinese-traditional", "czech", "english", "french", "italian", "japanese", "korean", "portuguese", "spanish"}
 
 func TestGetWordList(t *testing.T) {
 	for _, lang := range languages {
 		switch lang {
-		case "chinesesimplified":
+		case "chinese-simplified":
 			assert.EqualStringsSlices(t, wordlist.ChineseSimplified, wordList[lang])
-		case "chinesetraditional":
+		case "chinese-traditional":
 			assert.EqualStringsSlices(t, wordlist.ChineseTraditional, wordList[lang])
 		case "czech":
 			assert.EqualStringsSlices(t, wordlist.Czech, wordList[lang])

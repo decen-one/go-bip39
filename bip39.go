@@ -72,8 +72,8 @@ var (
 )
 
 func init() {
-	wordList["chinesesimplified"] = wordlist.ChineseSimplified
-	wordList["chinesetraditional"] = wordlist.ChineseTraditional
+	wordList["chinese-simplified"] = wordlist.ChineseSimplified
+	wordList["chinese-traditional"] = wordlist.ChineseTraditional
 	wordList["czech"] = wordlist.Czech
 	wordList["english"] = wordlist.English
 	wordList["french"] = wordlist.French
@@ -99,7 +99,7 @@ func SetWordMap() {
 func checkLanguage(lang string) string {
 	lang = strings.ToLower(lang)
 	switch lang {
-	case "chinesesimplified", "chinesetraditional", "czech", "english", "french", "italian", "japanese", "korean", "portuguese", "spanish":
+	case "chinese-simplified", "chinese-traditional", "czech", "english", "french", "italian", "japanese", "korean", "portuguese", "spanish":
 		return lang
 	default:
 		return "error"

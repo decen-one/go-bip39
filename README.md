@@ -24,14 +24,14 @@ import (
 
 func main() {
 	//NewRandMnemonic(language string,mnemonicSize int) (mnemonic space separated wordlist string, error )
-	//language should be in ["chinesesimplified", "chinesetraditional", "czech", "english", "french", "italian", "japanese", "korean", "portuguese", "spanish"]
+	//language should be in ["chinese-simplified", "chinese-traditional", "czech", "english", "french", "italian", "japanese", "korean", "portuguese", "spanish"]
 	//mnemonicSize should be in [12, 15, 18, 21, 24]
 	words, err := bip39.NewRandMnemonic("english", 12)
 	fmt.Println(words)
 	fmt.Println(err)
 
 	//convert words to corresponding seed checking words and language and validating the mnemonic words first
-	//language should be in ["chinesesimplified", "chinesetraditional", "czech", "english", "french", "italian", "japanese", "korean", "portuguese", "spanish"]
+	//language should be in ["chinese-simplified", "chinese-traditional", "czech", "english", "french", "italian", "japanese", "korean", "portuguese", "spanish"]
 	//mnemonic should be list of words with length of  [12, 15, 18, 21, 24] words in space separated string
 	//password is passphrase string
 	seed, err := bip39.NewSeedWithErrorChecking("english", words, "password")
