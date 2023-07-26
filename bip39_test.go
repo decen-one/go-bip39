@@ -153,7 +153,67 @@ func TestNewEntropy(t *testing.T) {
 		}
 	}
 }
+func TestNewEntropyWithMnemonicSize(t *testing.T) {
+	// Good tests.
+	for i := 12; i <= 24; i += 3 {
+		_, err := NewEntropyWithMnemonicSize(i)
+		assert.Nil(t, err)
+	}
 
+	// Bad Values
+	for i := 0; i <= 24; i++ {
+		if i%3 != 0 {
+			_, err := NewEntropyWithMnemonicSize(i)
+			assert.NotNil(t, err)
+		}
+	}
+}
+
+func TestCheckLanguages(t *testing.T) {
+	for _, lang := range languages {
+		res := checkLanguage(lang)
+		assert.Equal(t, res, lang)
+	}
+
+	res := checkLanguage("badValue")
+	assert.Equal(t, res, "error")
+
+}
+func TestNewRandMnemonic(t *testing.T) {
+	for _, lang := range languages {
+		// Good tests.
+		for i := 12; i <= 24; i += 3 {
+			_, err := NewRandMnemonic(lang, i)
+			assert.Nil(t, err)
+		}
+
+		// Bad Values
+		for i := 0; i <= 24; i++ {
+			if i%3 != 0 {
+				_, err := NewRandMnemonic(lang, i)
+				assert.NotNil(t, err)
+			}
+		}
+		for i := 12; i <= 24; i += 3 {
+			_, err := NewRandMnemonic(lang+"badValue", i)
+			assert.NotNil(t, err)
+		}
+
+	}
+	// Good tests.
+	for i := 12; i <= 24; i += 3 {
+		_, err := NewEntropyWithMnemonicSize(i)
+		assert.Nil(t, err)
+	}
+
+	// Bad Values
+	for i := 0; i <= 24; i++ {
+		if i%3 != 0 {
+			_, err := NewEntropyWithMnemonicSize(i)
+			assert.NotNil(t, err)
+		}
+	}
+}
 func TestMnemonicToByteArrayForDifferentArrayLengths(t *testing.T) {
 	max := 1000
 	for _, lang := range languages {
