@@ -5,6 +5,7 @@ The main features of the implementation are:
 1) Multilingual support with multilingual test of code
 2) Standard of utf and bytes based on NFKD encoding of bitcoinjs bip39
 3) Full coverage testing
+
 The implementation is based on https://github.com/tyler-smith/go-bip39
 and resolved problem of  encoding utf bytes based on NFKD encoding of bitcoinjs bip39 that was not supported in the package and added multilingual support of bip39 to the project.
 The project tried to complete the tests and resolve bottlenecks of the mentioned project
